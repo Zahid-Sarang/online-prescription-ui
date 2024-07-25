@@ -4,7 +4,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { Credentials } from "../../types";
 import { useAuthStore } from "../../store";
 import { login } from "../../http/api";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { getSelf } from "../../constants";
 
 const loginUser = async (credentials: Credentials) => {
@@ -28,6 +28,7 @@ const SignInPage = () => {
 			const selfDataPromise = await refetch();
 			const userInfo = selfDataPromise.data?.data;
 			setUser(userInfo);
+			<Navigate to={`/doctor-portal`} replace={true} />;
 		},
 	});
 	return (
@@ -109,6 +110,7 @@ const SignInPage = () => {
 							</Form.Item>
 						</Form>
 						<Link to="/auth/patient-signIn">Login as a Patien</Link>
+						<Link to="/auth/doctor-signUp">SigUp as a Doctor</Link>
 					</Card>
 				</Space>
 			</Layout>
