@@ -29,10 +29,6 @@ const Root = () => {
 		return <div>Loading....</div>;
 	}
 
-	if (isError) {
-		return <div>Error while fetching data....</div>;
-	}
-
 	return <Outlet />;
 };
 
