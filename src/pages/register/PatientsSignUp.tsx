@@ -4,11 +4,13 @@ import { useMutation } from "@tanstack/react-query";
 import { UserRegister } from "../../http/api"; // Ensure this API function supports file uploads
 import { Link, Navigate } from "react-router-dom";
 import { RcFile, UploadChangeParam, UploadFile } from "antd/lib/upload/interface";
+import { User } from "../../store";
 
 const { Title } = Typography;
 
 // Define the User type with FormData
-interface User {
+interface patient {
+	_id?: string;
 	profilePicture: UploadFile[];
 	name: string;
 	age: number;
@@ -21,7 +23,7 @@ interface User {
 }
 
 const registerUser = async (formData: FormData) => {
-	const { data } = await UserRegister(formData);
+	const { data } = await UserRegister(formData as unknown as User);
 	return data;
 };
 
@@ -33,7 +35,7 @@ const PatientSignUpPage = () => {
 	});
 
 	// Form submit handler
-	const handleFormSubmit = (values: User) => {
+	const handleFormSubmit = (values: patient) => {
 		const { profilePicture, ...rest } = values;
 
 		// Prepare FormData for file upload

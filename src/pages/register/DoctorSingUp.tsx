@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { UserRegister } from "../../http/api"; // Ensure this API function supports file uploads
 import { Link, Navigate } from "react-router-dom";
 import { RcFile, UploadChangeParam, UploadFile } from "antd/lib/upload/interface";
+import { User } from "../../store";
 
 const { Title } = Typography;
 
@@ -20,7 +21,7 @@ interface Doctor {
 }
 
 const registerUser = async (formData: FormData) => {
-	const { data } = await UserRegister(formData);
+	const { data } = await UserRegister(formData as unknown as User);
 	return data;
 };
 
