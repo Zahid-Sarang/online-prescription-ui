@@ -8,7 +8,7 @@ import { getSelf } from "../constants";
 const Root = () => {
 	const { setUser } = useAuthStore();
 
-	const { data, isLoading, isError } = useQuery({
+	const { data, isLoading } = useQuery({
 		queryKey: ["self"],
 		queryFn: getSelf,
 		retry: (failureCount: number, error) => {
