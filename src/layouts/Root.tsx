@@ -26,7 +26,7 @@ const Root = () => {
 	}, [data, setUser]);
 
 	if (isLoading) {
-		return <div>Loading....</div>;
+		return <div>please wait server take 1 minute to response</div>;
 	}
 
 	return <Outlet />;
