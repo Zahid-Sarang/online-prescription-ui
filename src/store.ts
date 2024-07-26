@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
 export interface User {
-	_id: string;
+	_id?: string;
 	profilePicture: string;
 	name: string;
 	specialty?: string;

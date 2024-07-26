@@ -14,3 +14,4 @@ export const UserRegister = (userInfo: User) =>
 	});
 export const createConsult = (data: Consultation) => api.post(`/api/v1/consultation`, data);
 export const getConsult = () => api.get(`/api/v1/consultation`);
+export const getPatientConsult = (consultId: string) => api.get(`/api/v1/consultation/${consultId}`);

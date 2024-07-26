@@ -4,7 +4,7 @@ import { useAuthStore } from "../../store";
 import { Card, Col, Row, Typography, Avatar, Space, Table, Button } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import { getConsult } from "../../http/api";
-import { Consultation } from "../../types";
+import { Consultations } from "../../types";
 
 const { Text, Title } = Typography;
 
@@ -13,7 +13,7 @@ const columns = [
 		title: "Patient Name",
 		dataIndex: "patientId.name",
 		key: "name",
-		render: (_text: string, record: Consultation) => {
+		render: (_text: string, record: Consultations) => {
 			return (
 				<Space>
 					<Typography.Text>{record.patientId.name}</Typography.Text>
@@ -25,7 +25,7 @@ const columns = [
 		title: "Patient Age",
 		dataIndex: "patientId.age",
 		key: "age",
-		render: (_text: string, record: Consultation) => {
+		render: (_text: string, record: Consultations) => {
 			return (
 				<Space>
 					<Typography.Text>{record.patientId.age}</Typography.Text>
@@ -108,7 +108,7 @@ const DoctorPortalPage = () => {
 								...columns,
 								{
 									title: "Actions",
-									render: (_, record: Consultation) => {
+									render: (_, record: Consultations) => {
 										return (
 											<Link to={`/prescription/${record._id}`}>
 												<Button type="link">Add Prescription</Button>
