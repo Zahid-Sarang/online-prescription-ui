@@ -1,5 +1,5 @@
 import { User } from "../store";
-import { Credentials } from "../types";
+import { Consultation, Credentials } from "../types";
 import { api } from "./client";
 
 export const login = (credential: Credentials) => api.post(`/api/v1/auth/login`, credential);
@@ -12,3 +12,4 @@ export const UserRegister = (userInfo: User) =>
 			"Content-Type": "multipart/form-data",
 		},
 	});
+export const createConsult = (data: Consultation) => api.post(`/api/v1/consultation`, data);

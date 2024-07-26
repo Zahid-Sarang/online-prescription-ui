@@ -7,6 +7,7 @@ import NonAuth from "./layouts/NonAuth";
 import HomePage from "./pages/patient/HomePage";
 import PatientSignUpPage from "./pages/register/PatientsSignUp";
 import DoctorSignUpPage from "./pages/register/DoctorSingUp";
+import ConsultationForm from "./pages/consultation/Form";
 
 export const router = createBrowserRouter([
 	{
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
 			{
 				path: "/doctor-portal",
 				element: <DoctorPortalPage />,
+			},
+			{
+				path: "/consult/:doctorId",
+				element: <ConsultationForm />,
 			},
 			{
 				path: "/auth",
