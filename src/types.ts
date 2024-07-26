@@ -1,10 +1,13 @@
+import { User } from "./store";
+
 export type Credentials = {
 	email: string;
 	password: string;
 };
 
 export interface Consultation {
-	patientId: string;
+	_id?: string;
+	patientId: User;
 	doctorId: string;
 	currentIllnessHistory: string;
 	recentSurgery: string;

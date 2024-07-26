@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useAuthStore } from "../store";
 
 export const api = axios.create({
 	baseURL: import.meta.env.VITE_BACKEND_API_URL,
@@ -31,7 +32,7 @@ api.interceptors.response.use(
 				return api.request({ ...originalRequest, headers });
 			} catch (err) {
 				console.error("Token refresh error", err);
-				// useAuthStore.getState().logout();
+				useAuthStore.getState().logout();
 				return Promise.reject(err);
 			}
 		}

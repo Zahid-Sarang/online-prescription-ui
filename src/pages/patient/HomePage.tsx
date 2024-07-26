@@ -4,6 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useAuthStore, User } from "../../store";
 import { doctorInfo } from "../../http/api";
 import "./HomePage.css"; // Import the custom CSS
+import LogoutButton from "../../components/logout/LogoutButton";
 
 const { Meta } = Card;
 
@@ -36,6 +37,7 @@ const HomePage = () => {
 
 	return (
 		<>
+			<LogoutButton />
 			<Row gutter={[16, 16]} style={{ padding: "20px" }}>
 				{doctors &&
 					doctors.map((doctor: User) => (

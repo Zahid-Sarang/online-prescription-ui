@@ -8,12 +8,14 @@ export interface User {
 	specialty?: string;
 	email: string;
 	phoneNumber: string;
-	yearsOfExperience?: number;
 	age?: number;
 	historyOfSurgery?: string;
 	historyOfIllness?: string;
 	role: "doctor" | "patient";
 	password: string;
+	yearsOfExperience: {
+		$numberDecimal: number;
+	};
 }
 
 interface AuthState {
